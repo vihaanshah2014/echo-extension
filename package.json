@@ -1,0 +1,167 @@
+{
+  "name": "echo-text-summarizer",
+  "displayName": "Echo - Text Summarizer",
+  "description": "Summarize selected text in VS Code using Echo AI",
+  "version": "1.0.0",
+  "publisher": "echo-dev",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Vihaan-Shah_sasinst/echo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Vihaan-Shah_sasinst/echo/issues"
+  },
+  "homepage": "https://github.com/Vihaan-Shah_sasinst/echo#readme",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other",
+    "Machine Learning",
+    "Snippets"
+  ],
+  "keywords": [
+    "ai",
+    "summarization", 
+    "text processing",
+    "productivity",
+    "chat",
+    "assistant"
+  ],
+  "icon": "icons/R.png",
+  "activationEvents": [
+    "onView:echo.chatView"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "echo",
+          "title": "Echo AI",
+          "icon": "$(comment-discussion)"
+        }
+      ]
+    },
+    "views": {
+      "echo": [
+        {
+          "type": "webview",
+          "id": "echo.chatView",
+          "name": "AI Assistant",
+          "when": "true"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "echo.clearChat",
+        "title": "Clear Chat",
+        "icon": "$(clear-all)"
+      },
+      {
+        "command": "echo.summarizeSelection",
+        "title": "Summarize in Echo Chat",
+        "category": "Echo"
+      },
+      {
+        "command": "echo.sendCodeToChat",
+        "title": "Send Code to Echo Chat",
+        "category": "Echo"
+      },
+      {
+        "command": "echo.summarizeInput",
+        "title": "Summarize Text Input",
+        "category": "Echo"
+      },
+      {
+        "command": "echo.refresh",
+        "title": "Refresh",
+        "icon": "$(refresh)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "echo.clearChat",
+          "when": "view == echo.chatView",
+          "group": "navigation"
+        },
+        {
+          "command": "echo.refresh",
+          "when": "view == echo.chatView",
+          "group": "navigation"
+        }
+      ],
+      "editor/context": [
+        {
+          "when": "editorHasSelection",
+          "command": "echo.summarizeSelection",
+          "group": "navigation@1"
+        },
+        {
+          "when": "editorHasSelection",
+          "command": "echo.sendCodeToChat",
+          "group": "navigation@2"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "echo.summarizeSelection",
+          "when": "editorHasSelection"
+        },
+        {
+          "command": "echo.sendCodeToChat",
+          "when": "editorHasSelection"
+        },
+        {
+          "command": "echo.summarizeInput"
+        },
+        {
+          "command": "echo.clearChat",
+          "when": "false"
+        },
+        {
+          "command": "echo.refresh",
+          "when": "false"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "echo.summarizeSelection",
+        "key": "ctrl+shift+s",
+        "mac": "cmd+shift+s",
+        "when": "editorHasSelection"
+      },
+      {
+        "command": "echo.sendCodeToChat",
+        "key": "ctrl+shift+c",
+        "mac": "cmd+shift+c",
+        "when": "editorHasSelection"
+      },
+      {
+        "command": "echo.summarizeInput",
+        "key": "ctrl+shift+alt+s",
+        "mac": "cmd+shift+alt+s"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.60.0",
+    "@types/node": "16.x",
+    "@types/node-fetch": "^2.6.4",
+    "@types/bad-words": "^3.0.1",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.7",
+    "bad-words": "^3.0.4"
+  }
+} 
