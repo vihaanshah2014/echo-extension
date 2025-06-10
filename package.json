@@ -2,17 +2,17 @@
   "name": "echo-text-summarizer",
   "displayName": "Echo - Text Summarizer",
   "description": "Summarize selected text in VS Code using Echo AI",
-  "version": "1.0.0",
-  "publisher": "echo-dev",
+  "version": "1.0.1",
+  "publisher": "echoyz",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Vihaan-Shah_sasinst/echo.git"
+    "url": "https://github.com/vihaanshah2014/echo-extension.git"
   },
   "bugs": {
-    "url": "https://github.com/Vihaan-Shah_sasinst/echo/issues"
+    "url": "https://github.com/vihaanshah2014/echo-extension/issues"
   },
-  "homepage": "https://github.com/Vihaan-Shah_sasinst/echo#readme",
+  "homepage": "https://github.com/vihaanshah2014/echo-extension#readme",
   "engines": {
     "vscode": "^1.60.0"
   },
